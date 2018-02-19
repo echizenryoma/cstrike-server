@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  cstrike-server:
+    image: reg.qiniu.com/raichu/cstrike-server
+    volumes:
+      - /etc/cstrike/server.cfg:/opt/hlds/cstrike/server.cfg:ro
+    ports:
+      - 27015:27015/udp
