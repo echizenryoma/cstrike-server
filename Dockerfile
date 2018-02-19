@@ -54,5 +54,8 @@ RUN mkdir -p ${HOME}/.steam/sdk32/ \
 # Set our workdir
 WORKDIR /opt/hlds/
 
+# Expose port
+EXPOSE ${PORT}/udp
+
 # Default run command
 CMD ./hlds_run -insecure -console -game cstrike -port ${PORT} +maxplayers ${MAX_PLAYERS} +map ${MAP} +mp_logecho 1
