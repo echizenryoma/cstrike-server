@@ -6,4 +6,4 @@ services:
     volumes:
       - /etc/cstrike/server.cfg:/opt/hlds/cstrike/server.cfg:ro
     ports:
-      - 27015:27015/udp
+      - 27015+:27015/udp
