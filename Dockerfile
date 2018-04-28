@@ -2,9 +2,9 @@ FROM centos:7
 LABEL maintainer="echizenryoma.zhang@gmail.com"
 
 # Runtime settings
-ENV PORT=27015
-ENV MAX_PLAYERS=32
-ENV MAP=fy_iceworld
+ENV CSTRIKE_SERVER_PORT=27015
+ENV CSTRIKE_SERVER_MAX_PLAYERS=32
+ENV CSTRIKE_SERVER_MAP=fy_iceworld
 
 # Install steamcmd
 RUN yum makecache \
@@ -55,7 +55,7 @@ RUN mkdir -p ${HOME}/.steam/sdk32/ \
 WORKDIR /opt/hlds/
 
 # Expose port
-EXPOSE ${PORT}/udp
+EXPOSE ${CSTRIKE_SERVER_PORT}/udp
 
 # Default run command
-CMD ./hlds_run -insecure -console -game cstrike -port ${PORT} +maxplayers ${MAX_PLAYERS} +map ${MAP} +mp_logecho 1
+CMD ./hlds_run -insecure -console -game cstrike -port ${CSTRIKE_SERVER_PORT} +maxplayers ${CSTRIKE_SERVER_MAX_PLAYERS} +map ${CSTRIKE_SERVER_MAP} +mp_logecho 1
